@@ -64,4 +64,4 @@ Follow these steps to set up the project locally.
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-Made with ❤️ by [Aswindeep](https://github.com/aswindev-tech)
+Made with ❤️ by [Aswin Dev](https://github.com/aswindev-tech)
