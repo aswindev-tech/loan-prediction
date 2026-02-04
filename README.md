@@ -16,6 +16,22 @@ The **Banking Loan Prediction System** is an AI-powered web application designed
 - **Detailed Insights**: View the confidence level of the model's prediction.
 - **Responsive Design**: Works seamlessly on desktop and mobile devices.
 
+## 📊 Data Analysis
+
+Here are some insights from the dataset used to train the model. Note that outliers were removed for a clearer representation.
+
+### Loan Status Distribution
+![Loan Status](assets/loan_status_distribution.png)
+*Distribution of approved vs. rejected loans.*
+
+### Loan Amount Distribution
+![Loan Amount](assets/loan_amount_distribution.png)
+*Distribution of the approved loan amounts.*
+
+### Correlation Heatmap
+![Correlation](assets/correlation_heatmap.png)
+*Correlation between different numerical features.*
+
 ## 🚀 Installation
 
 Follow these steps to set up the project locally.
