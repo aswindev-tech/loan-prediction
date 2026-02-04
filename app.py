@@ -61,10 +61,10 @@ with st.form("loan_prediction_form"):
     submitted = st.form_submit_button("Predict Status")
 
 if submitted:
-    # Calculate EMI automatically
+    
     emi = calculate_emi(approved_loan_amount, interest, months)
     
-    # Construct DataFrame with exactly the same columns as training
+   
     input_data = {
         'Age': age,
         'Occupation': occupation,
@@ -92,11 +92,11 @@ if submitted:
         st.write(f"**Calculated Monthly EMI:** ₹{emi:,.2f}")
         
         if prediction[0] == 1:
-            st.success("🎉 Status: APPROVED (Pass)")
+            st.success(" Status: APPROVED (Pass)")
             st.write(f"Confidence: **{np.max(prob)*100:.2f}%**")
             st.balloons()
         else:
-            st.error("❌ Status: REJECTED")
+            st.error(" Status: REJECTED")
             st.write(f"Confidence: **{np.max(prob)*100:.2f}%**")
             
     except Exception as e:
