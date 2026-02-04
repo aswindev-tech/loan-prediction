@@ -5,7 +5,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Set Page Config
+
 st.set_page_config(page_title="Loan Approval AI", layout="centered")
 
 @st.cache_resource
@@ -27,7 +27,7 @@ def load_data():
 def calculate_emi(principal, annual_rate, months):
     if principal <= 0 or months <= 0:
         return 0.0
-    # Monthly interest rate = Annual rate / 12 / 100
+    
     r = annual_rate / 12 / 100
     if r == 0:
         return principal / months
@@ -36,11 +36,11 @@ def calculate_emi(principal, annual_rate, months):
     denominator = ((1 + r) ** months) - 1
     return numerator / denominator
 
-# Sidebar for Navigation
+
 page = st.sidebar.radio("Navigation", ["Loan Prediction", "Data Analysis"])
 
 if page == "Loan Prediction":
-    st.title("🏦 Banking Loan Prediction System")
+    st.title(" Banking Loan Prediction System")
     st.write("Predict if a loan application will be **Approved** or **Rejected**.")
 
     if model is None:
@@ -73,11 +73,9 @@ if page == "Loan Prediction":
         submitted = st.form_submit_button("Predict Status")
 
     if submitted:
-        # Calculate EMI automatically
+        
         emi = calculate_emi(approved_loan_amount, interest, months)
         
-        # Construct DataFrame with exactly the same columns as training
-        # Note: 'Approved Loan Amount (INR)' is used as proposed loan amount
         input_data = {
             'Age': age,
             'Occupation': occupation,
@@ -94,18 +92,9 @@ if page == "Loan Prediction":
         
         input_df = pd.DataFrame([input_data])
         
-        # Ensure column order matches training
-        # If 'col_info' has all columns (num + cat), we can reindex
         all_cols = col_info['numerical'] + col_info['categorical']
-        # Note: The order in 'all_cols' might not match the original DF order exactly, 
-        # but Pipeline expects columns by name for ColumnTransformer? 
-        # Actually ColumnTransformer matches by name. But XGBoost might be sensitive if not named.
-        # It's safest to match the training dataframe structure if possible.
-        # But ColumnTransformer is robust to order if names match.
         
         try:
-            # Predict
-            # Since pipeline handles transforming, we just pass the raw DF
             prediction = model.predict(input_df)
             prob = model.predict_proba(input_df)
             
@@ -115,11 +104,11 @@ if page == "Loan Prediction":
             st.write(f"**Calculated Monthly EMI:** ₹{emi:,.2f}")
             
             if prediction[0] == 1:
-                st.success("🎉 Status: APPROVED (Pass)")
+                st.success(" Status: APPROVED (Pass)")
                 st.write(f"Confidence: **{np.max(prob)*100:.2f}%**")
                 st.balloons()
             else:
-                st.error("❌ Status: REJECTED")
+                st.error(" Status: REJECTED")
                 st.write(f"Confidence: **{np.max(prob)*100:.2f}%**")
                 
         except Exception as e:
@@ -131,7 +120,6 @@ elif page == "Data Analysis":
     
     df = load_data()
     
-    # Simple outlier removal for better visuals
     def remove_outliers(data, column):
         if column not in data.columns: return data
         Q1 = data[column].quantile(0.25)
