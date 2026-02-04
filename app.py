@@ -3,7 +3,7 @@ import pickle
 import pandas as pd
 import numpy as np
 
-# Set Page Config
+
 st.set_page_config(page_title="Loan Approval AI", layout="centered")
 
 @st.cache_resource
