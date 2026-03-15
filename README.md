@@ -84,7 +84,7 @@ Loan-Approval-Prediction
 │   └── trained_model.pkl
 │
 ├── README.md
-└── requirements.txt
+└── requirements.txt```
 
 Results
 
