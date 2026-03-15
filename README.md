@@ -72,7 +72,7 @@ Property Area
 Loan Status (Approved / Rejected)
 
 Project Structure
-'''Loan-Approval-Prediction
+```Loan-Approval-Prediction
 │
 ├── data
 │   └── loan_dataset.csv
@@ -84,7 +84,7 @@ Project Structure
 │   └── trained_model.pkl
 │
 ├── README.md
-└── requirements.txt'''
+└── requirements.txt```
 Results
 
 The machine learning model was trained and evaluated to predict loan approval status.
