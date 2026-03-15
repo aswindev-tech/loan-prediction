@@ -71,7 +71,8 @@ Property Area
 
 Loan Status (Approved / Rejected)
 
-Project Structure```
+Project Structure
+```
 Loan-Approval-Prediction
 │
 ├── data
